@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2 (Python 3.13.1 on win32)" generated="2025-01-23T11:13:41.128744" rpa="false" schemaversion="5">
+<suite id="s1" name="Registration Tests" source="C:\afyangu-tests\Tests\registration_tests.robot">
+<test id="s1-t1" name="Complete Registration Process" line="10">
+<kw name="Open Afyangu Website" owner="common" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-01-23T11:13:42.609077" level="INFO">Opening browser 'chrome' to base url 'https://afyangu.kenya-hie.health/'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-01-23T11:13:42.608097" elapsed="108.824665"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-01-23T11:15:31.433403" elapsed="0.132199"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
+<arg>10</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" start="2025-01-23T11:15:31.566264" elapsed="0.013751"/>
+</kw>
+<status status="PASS" start="2025-01-23T11:13:42.606408" elapsed="108.974045"/>
+</kw>
+<kw name="Complete Registration Flow" owner="registration_keywords">
+<kw name="Click Registration Button" owner="registration_keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2025-01-23T11:15:52.539230" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-4.png"&gt;&lt;img src="selenium-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-01-23T11:15:52.539685" level="FAIL">Element 'xpath=/html/body/div/main/div/div[1]/div[1]/div[2]/button[1]' not visible after 20 seconds.</msg>
+<arg>${REGISTRATION_BUTTON}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2025-01-23T11:15:31.603740" elapsed="21.050947">Element 'xpath=/html/body/div/main/div/div[1]/div[1]/div[2]/button[1]' not visible after 20 seconds.</status>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>${REGISTRATION_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-01-23T11:15:52.655363" elapsed="0.000164"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-01-23T11:15:52.656066" elapsed="0.000171"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>Clicked Registration Button</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-01-23T11:15:52.656663" elapsed="0.000079"/>
+</kw>
+<status status="FAIL" start="2025-01-23T11:15:31.601094" elapsed="21.056209">Element 'xpath=/html/body/div/main/div/div[1]/div[1]/div[2]/button[1]' not visible after 20 seconds.</status>
+</kw>
+<kw name="Click Initial Proceed Button" owner="registration_keywords">
+<status status="NOT RUN" start="2025-01-23T11:15:52.658046" elapsed="0.000145"/>
+</kw>
+<kw name="Fill Registration Form" owner="registration_keywords">
+<status status="NOT RUN" start="2025-01-23T11:15:52.658864" elapsed="0.000146"/>
+</kw>
+<kw name="Click Final Proceed Button" owner="registration_keywords">
+<status status="NOT RUN" start="2025-01-23T11:15:52.659577" elapsed="0.000183"/>
+</kw>
+<kw name="Handle OTP Verification" owner="registration_keywords">
+<status status="NOT RUN" start="2025-01-23T11:15:52.660499" elapsed="0.000128"/>
+</kw>
+<kw name="Create PIN" owner="registration_keywords">
+<status status="NOT RUN" start="2025-01-23T11:15:52.661121" elapsed="0.000094"/>
+</kw>
+<kw name="Complete Final Steps" owner="registration_keywords">
+<status status="NOT RUN" start="2025-01-23T11:15:52.661868" elapsed="0.000120"/>
+</kw>
+<status status="FAIL" start="2025-01-23T11:15:31.600004" elapsed="21.062355">Element 'xpath=/html/body/div/main/div/div[1]/div[1]/div[2]/button[1]' not visible after 20 seconds.</status>
+</kw>
+<kw name="Close Afyangu Website" owner="common" type="TEARDOWN">
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2025-01-23T11:15:52.665291" elapsed="2.322535"/>
+</kw>
+<status status="PASS" start="2025-01-23T11:15:52.664024" elapsed="2.324325"/>
+</kw>
+<doc>Complete registration process with valid data</doc>
+<timeout value="5 minutes"/>
+<status status="FAIL" start="2025-01-23T11:13:42.605022" elapsed="132.384316">Element 'xpath=/html/body/div/main/div/div[1]/div[1]/div[2]/button[1]' not visible after 20 seconds.</status>
+</test>
+<doc>Registration tests for Afyangu Health Website</doc>
+<status status="FAIL" start="2025-01-23T11:13:41.131175" elapsed="133.865261"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Registration Tests" id="s1" pass="0" fail="1" skip="0">Registration Tests</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
