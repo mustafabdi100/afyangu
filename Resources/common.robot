@@ -26,7 +26,8 @@ ${PIN_INPUT}           xpath=/html/body/div/main/div/div[2]/div[2]/div/div/div/f
 ${CONFIRM_PIN_INPUT}   xpath=/html/body/div/main/div/div[2]/div[2]/div/div/div/form/div[2]/div/div[1]/div[2]/input
 ${PIN_PROCEED}         xpath=/html/body/div/main/div/div[2]/div[2]/div/div/div/form/button[2]
 ${SUCCESS_PROCEED}     xpath=/html/body/div/main/div/div[2]/button
-${CONTINUE_REG}        xpath=/html/body/div[4]/div/div[1]/div[2]/button[2]
+${CONTINUE_REG}        css=button.instructions-comp_continue_btn__ZzS8v
+${CONTINUE_REG_ALT}    xpath=/html/body/div[4]/div/div[5]/button[2]
 
 # Login Page Elements
 ${LOGIN_ID_INPUT}     css=body > div > div.login-page_signin_content__nYc2L > div > form > div.login-page_input_container__WP9Hf > div.space-y-2 > input
@@ -35,6 +36,13 @@ ${LOGIN_PIN_ALT}      css=#\:r5\:-form-item
 ${LOGIN_SEND_CODE}    css=button.login-page_submit_button__2NeWZ
 ${LOGIN_OTP_INPUT}    xpath=/html/body/div/main/div/div[2]/div/form/div[1]/div/div/div[2]/input
 ${LOGIN_OTP_PROCEED}  xpath=/html/body/div/main/div/div[2]/div/form/div[2]/button[2]
+
+${PROFILE_URL}        ${BASE_URL}/my-profile
+${DEPENDENTS_TAB}     css=button.my-profile_tab_item__QO1CY
+${ADD_DEPENDENT_BTN}  css=button.dependants_dependant_btn__H5_cB
+${RELATION_DROPDOWN}  css=button[role='combobox'][class*='select_form_field_input']
+${AGE_GROUP_DROPDOWN}  xpath=(//button[@role='combobox'][contains(@class, 'select_form_field_input')])[2]
+
 
 # Common Test Data
 ${ID_NUMBER}           41075456

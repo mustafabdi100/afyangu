@@ -20,10 +20,18 @@ Complete Final Steps
     Click Element    ${SUCCESS_PROCEED}
     Sleep    5s
     
-    # Click continue registration on info page
-    Wait Until Element Is Visible    ${CONTINUE_REG}    ${TIMEOUT}
-    Click Element    ${CONTINUE_REG}
+    # Click continue registration on info page - try both locators
+    ${continue_visible}=    Run Keyword And Return Status    
+    ...    Wait Until Element Is Visible    ${CONTINUE_REG}    5s
+    
+    Run Keyword If    '${continue_visible}'=='True'    
+    ...    Click Element    ${CONTINUE_REG}
+    ...    ELSE    
+    ...    Wait Until Element Is Visible    ${CONTINUE_REG_ALT}    ${TIMEOUT}
+    ...    AND    Click Element    ${CONTINUE_REG_ALT}
+    
     Sleep    5s
+    Log    Clicked Continue Registration Button
 
 Click Registration Button
     Wait Until Element Is Visible    ${REGISTRATION_BUTTON}    ${TIMEOUT}

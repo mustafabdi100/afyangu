@@ -1,0 +1,685 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2 (Python 3.13.1 on win32)" generated="2025-01-28T15:57:33.830877" rpa="false" schemaversion="5">
+<suite id="s1" name="Afyangu Health Platform Tests">
+<suite id="s1-s1" name="Login Tests" source="C:\afyangu-tests\Tests\login_tests.robot">
+<kw name="Log" owner="BuiltIn" type="SETUP">
+<msg time="2025-01-28T15:57:34.319767" level="INFO">Starting Login Test Suite</msg>
+<arg>Starting Login Test Suite</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-01-28T15:57:34.319522" elapsed="0.000340"/>
+</kw>
+<test id="s1-s1-t1" name="Complete Login Process" line="22">
+<kw name="Open Afyangu Login" owner="common" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-01-28T15:57:34.322433" level="INFO">Opening browser 'chrome' to base url 'https://afyangu.kenya-hie.health/sign-in'.</msg>
+<arg>${LOGIN_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-01-28T15:57:34.321471" elapsed="4.540642"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-01-28T15:57:38.862506" elapsed="0.080727"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
+<arg>10</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" start="2025-01-28T15:57:38.943702" elapsed="0.003097"/>
+</kw>
+<status status="PASS" start="2025-01-28T15:57:34.321103" elapsed="4.625920"/>
+</kw>
+<kw name="Fill Login Form" owner="login_keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LOGIN_ID_INPUT}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-01-28T15:57:38.953630" elapsed="0.103105"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-01-28T15:57:39.060058" level="INFO">Typing text '41075456' into text field 'css=body &gt; div &gt; div.login-page_signin_content__nYc2L &gt; div &gt; form &gt; div.login-page_input_container__WP9Hf &gt; div.space-y-2 &gt; input'.</msg>
+<arg>${LOGIN_ID_INPUT}</arg>
+<arg>${ID_NUMBER}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-28T15:57:39.057398" elapsed="0.200040"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-01-28T15:57:39.258744" level="INFO">Entered ID Number: 41075456</msg>
+<arg>Entered ID Number: ${ID_NUMBER}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-01-28T15:57:39.257785" elapsed="0.001113"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-01-28T15:57:41.260292" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-01-28T15:57:39.259148" elapsed="2.001688"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LOGIN_PIN_INPUT}</arg>
+<arg>5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-01-28T15:57:41.262309" elapsed="0.076563"/>
+</kw>
+<msg time="2025-01-28T15:57:41.339358" level="INFO">${pin_status} = True</msg>
+<var>${pin_status}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>${LOGIN_PIN_INPUT}</arg>
+<arg>5s</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-01-28T15:57:41.261560" elapsed="0.077922"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${pin_status}'=='False'</arg>
+<arg>Wait Until Element Is Visible</arg>
+<arg>${LOGIN_PIN_ALT}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-01-28T15:57:41.340003" elapsed="0.000685"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-01-28T15:57:41.343973" level="INFO">Typing text '1234' into text field 'css=input.login-page_inputotp_container__CMggE'.</msg>
+<arg>${LOGIN_PIN_INPUT}</arg>
+<arg>${PIN_NUMBER}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-28T15:57:41.342288" elapsed="0.372104"/>
+</kw>
+<arg>'${pin_status}'=='True'</arg>
+<arg>Input Text</arg>
+<arg>${LOGIN_PIN_INPUT}</arg>
+<arg>${PIN_NUMBER}</arg>
+<arg>ELSE</arg>
+<arg>Input Text</arg>
+<arg>${LOGIN_PIN_ALT}</arg>
+<arg>${PIN_NUMBER}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-01-28T15:57:41.341337" elapsed="0.373459"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-01-28T15:57:41.718661" level="INFO">Entered PIN: 1234</msg>
+<arg>Entered PIN: ${PIN_NUMBER}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-01-28T15:57:41.716413" elapsed="0.002414"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-01-28T15:57:43.720862" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-01-28T15:57:41.719174" elapsed="2.002775"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LOGIN_SEND_CODE}</arg>
+<arg>5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-01-28T15:57:43.723340" elapsed="0.070706"/>
+</kw>
+<msg time="2025-01-28T15:57:43.794546" level="INFO">${send_code_visible} = True</msg>
+<var>${send_code_visible}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>${LOGIN_SEND_CODE}</arg>
+<arg>5s</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-01-28T15:57:43.722634" elapsed="0.072039"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${send_code_visible}'=='False'</arg>
+<arg>Wait Until Element Is Visible</arg>
+<arg>xpath=//button[contains(text(), 'Send Code')]</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-01-28T15:57:43.795205" elapsed="0.000676"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-01-28T15:57:43.799105" level="INFO">Clicking element 'css=button.login-page_submit_button__2NeWZ'.</msg>
+<arg>${LOGIN_SEND_CODE}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-28T15:57:43.797199" elapsed="0.317906"/>
+</kw>
+<arg>'${send_code_visible}'=='True'</arg>
+<arg>Click Element</arg>
+<arg>${LOGIN_SEND_CODE}</arg>
+<arg>ELSE</arg>
+<arg>Click Element</arg>
+<arg>xpath=//button[contains(text(), 'Send Code')]</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-01-28T15:57:43.796364" elapsed="0.319111"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-01-28T15:57:49.118986" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-01-28T15:57:44.116170" elapsed="5.003130"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-01-28T15:57:49.120584" level="INFO">Clicked Send Code button</msg>
+<arg>Clicked Send Code button</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-01-28T15:57:49.119648" elapsed="0.001194"/>
+</kw>
+<status status="PASS" start="2025-01-28T15:57:38.952297" elapsed="10.168754"/>
+</kw>
+<kw name="Handle Login OTP" owner="login_keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LOGIN_OTP_INPUT}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-01-28T15:57:49.122233" elapsed="0.069789"/>
+</kw>
+<kw name="Get Value From User" owner="Dialogs">
+<msg time="2025-01-28T15:57:57.478191" level="INFO">${otp} = 86406</msg>
+<var>${otp}</var>
+<arg>Please enter the OTP received:</arg>
+<doc>Pauses execution and asks user to input a value.</doc>
+<status status="PASS" start="2025-01-28T15:57:49.192858" elapsed="8.285506"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-01-28T15:57:57.504172" level="INFO">Typing text '86406' into text field 'xpath=/html/body/div/main/div/div[2]/div/form/div[1]/div/div/div[2]/input'.</msg>
+<arg>${LOGIN_OTP_INPUT}</arg>
+<arg>${otp}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-28T15:57:57.479206" elapsed="0.208691"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-01-28T15:57:59.689388" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-01-28T15:57:57.688244" elapsed="2.001564"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-01-28T15:57:59.692074" level="INFO">Entered OTP</msg>
+<arg>Entered OTP</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-01-28T15:57:59.690401" elapsed="0.002054"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${LOGIN_OTP_PROCEED}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-01-28T15:57:59.693038" elapsed="0.078361"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-01-28T15:57:59.773963" level="INFO">Clicking element 'xpath=/html/body/div/main/div/div[2]/div/form/div[2]/button[2]'.</msg>
+<arg>${LOGIN_OTP_PROCEED}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-28T15:57:59.772033" elapsed="0.301395"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-01-28T15:58:05.076157" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-01-28T15:58:00.074004" elapsed="5.002716"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-01-28T15:58:05.079207" level="INFO">Clicked Proceed - Test Complete</msg>
+<arg>Clicked Proceed - Test Complete</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-01-28T15:58:05.077370" elapsed="0.002330"/>
+</kw>
+<status status="PASS" start="2025-01-28T15:57:49.121794" elapsed="15.958285"/>
+</kw>
+<kw name="Close Afyangu Website" owner="common" type="TEARDOWN">
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2025-01-28T15:58:05.083420" elapsed="2.608521"/>
+</kw>
+<status status="PASS" start="2025-01-28T15:58:05.082216" elapsed="2.610199"/>
+</kw>
+<doc>Validates the complete login flow with valid credentials
+
+Test Steps:
+1. Access login page
+2. Enter ID and PIN
+3. Request OTP
+4. Verify OTP
+
+Expected Results:
+- User should be able to input credentials
+- OTP should be received
+- Login should be successful</doc>
+<tag>critical</tag>
+<tag>login</tag>
+<tag>smoke</tag>
+<timeout value="5 minutes"/>
+<status status="PASS" start="2025-01-28T15:57:34.320118" elapsed="33.373185"/>
+</test>
+<kw name="Log" owner="BuiltIn" type="TEARDOWN">
+<msg time="2025-01-28T15:58:07.699244" level="INFO">Completed Login Test Suite</msg>
+<arg>Completed Login Test Suite</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-01-28T15:58:07.698704" elapsed="0.000794"/>
+</kw>
+<doc>Automated test suite for Afyangu Health Platform Login Process
+This suite tests the complete user login flow including:
+- Login page access
+- Credentials input
+- OTP verification
+- Successful login</doc>
+<meta name="Browser">Chrome</meta>
+<meta name="Environment">Test</meta>
+<meta name="Executed By">QA Team</meta>
+<meta name="Platform">Afyangu Health</meta>
+<meta name="Version">1.0</meta>
+<status status="PASS" start="2025-01-28T15:57:33.880421" elapsed="33.819338"/>
+</suite>
+<suite id="s1-s2" name="Registration Tests" source="C:\afyangu-tests\Tests\registration_tests.robot">
+<kw name="Log" owner="BuiltIn" type="SETUP">
+<msg time="2025-01-28T15:58:07.761676" level="INFO">Starting Registration Test Suite</msg>
+<arg>Starting Registration Test Suite</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-01-28T15:58:07.760837" elapsed="0.001092"/>
+</kw>
+<test id="s1-s2-t1" name="Complete Registration Process" line="28">
+<kw name="Open Afyangu Website" owner="common" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-01-28T15:58:07.767991" level="INFO">Opening browser 'chrome' to base url 'https://afyangu.kenya-hie.health/'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-01-28T15:58:07.765529" elapsed="3.951137"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-01-28T15:58:11.717494" elapsed="0.110410"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" owner="SeleniumLibrary">
+<arg>10</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" start="2025-01-28T15:58:11.828272" elapsed="0.002637"/>
+</kw>
+<status status="PASS" start="2025-01-28T15:58:07.763450" elapsed="4.067730"/>
+</kw>
+<kw name="Complete Registration Flow" owner="registration_keywords">
+<kw name="Click Registration Button" owner="registration_keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${REGISTRATION_BUTTON}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-01-28T15:58:11.860202" elapsed="0.065857"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-01-28T15:58:11.927507" level="INFO">Clicking element 'xpath=/html/body/div/main/div/div[1]/div[1]/div[2]/button[1]'.</msg>
+<arg>${REGISTRATION_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-28T15:58:11.926344" elapsed="0.110062"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-01-28T15:58:17.038070" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-01-28T15:58:12.036664" elapsed="5.001914"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-01-28T15:58:17.040681" level="INFO">Clicked Registration Button</msg>
+<arg>Clicked Registration Button</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-01-28T15:58:17.039178" elapsed="0.001925"/>
+</kw>
+<status status="PASS" start="2025-01-28T15:58:11.859197" elapsed="5.182232"/>
+</kw>
+<kw name="Click Initial Proceed Button" owner="registration_keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${INITIAL_PROCEED}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-01-28T15:58:17.043301" elapsed="0.080968"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-01-28T15:58:17.126443" level="INFO">Clicking element 'xpath=//button[contains(text(), 'Proceed')]'.</msg>
+<arg>${INITIAL_PROCEED}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-28T15:58:17.124830" elapsed="0.252501"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-01-28T15:58:22.380549" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-01-28T15:58:17.378219" elapsed="5.003004"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-01-28T15:58:22.384962" level="INFO">Clicked Initial Proceed Button</msg>
+<arg>Clicked Initial Proceed Button</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-01-28T15:58:22.383092" elapsed="0.002289"/>
+</kw>
+<status status="PASS" start="2025-01-28T15:58:17.042035" elapsed="5.343900"/>
+</kw>
+<kw name="Fill Registration Form" owner="registration_keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${ID_NUMBER_INPUT}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-01-28T15:58:22.388134" elapsed="0.094762"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-01-28T15:58:22.486783" level="INFO">Typing text '41075456' into text field 'xpath=/html/body/div/div[3]/div[2]/form/div[2]/div/input'.</msg>
+<arg>${ID_NUMBER_INPUT}</arg>
+<arg>${ID_NUMBER}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-28T15:58:22.483852" elapsed="0.435200"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-01-28T15:58:22.921264" level="INFO">Typing text 'Mustaf' into text field 'xpath=/html/body/div/div[3]/div[2]/form/div[3]/div/input'.</msg>
+<arg>${FIRST_NAME_INPUT}</arg>
+<arg>${FIRST_NAME}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-28T15:58:22.919487" elapsed="0.304594"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-01-28T15:58:23.225521" level="INFO">Typing text '792246726' into text field 'xpath=/html/body/div/div[3]/div[2]/form/div[4]/div/div/div/input'.</msg>
+<arg>${PHONE_NUMBER_INPUT}</arg>
+<arg>${PHONE_NUMBER}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-28T15:58:23.224464" elapsed="0.265961"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-01-28T15:58:23.491821" level="INFO">Filled Registration Form</msg>
+<arg>Filled Registration Form</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-01-28T15:58:23.490772" elapsed="0.001293"/>
+</kw>
+<status status="PASS" start="2025-01-28T15:58:22.386736" elapsed="1.105557"/>
+</kw>
+<kw name="Click Final Proceed Button" owner="registration_keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${FINAL_PROCEED}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-01-28T15:58:23.493361" elapsed="0.041444"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-01-28T15:58:23.535811" level="INFO">Clicking element 'xpath=/html/body/div/div[3]/div[2]/form/div[6]/div/button[1]'.</msg>
+<arg>${FINAL_PROCEED}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-28T15:58:23.535050" elapsed="0.170958"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-01-28T15:58:28.710784" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-01-28T15:58:23.706367" elapsed="5.005462"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-01-28T15:58:28.714214" level="INFO">Clicked Final Proceed Button</msg>
+<arg>Clicked Final Proceed Button</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-01-28T15:58:28.712493" elapsed="0.002154"/>
+</kw>
+<status status="PASS" start="2025-01-28T15:58:23.492732" elapsed="5.222257"/>
+</kw>
+<kw name="Handle OTP Verification" owner="registration_keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CHECKBOX}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-01-28T15:58:28.716844" elapsed="0.076722"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-01-28T15:58:28.795996" level="INFO">Clicking element 'xpath=/html/body/div/main/div/div[2]/div/div/div[2]/button'.</msg>
+<arg>${CHECKBOX}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-28T15:58:28.794183" elapsed="0.277318"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-01-28T15:58:31.075736" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-01-28T15:58:29.072468" elapsed="2.003737"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${SEND_CODE_BUTTON}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-01-28T15:58:31.076802" elapsed="0.052411"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-01-28T15:58:31.131415" level="INFO">Clicking element 'xpath=/html/body/div/main/div/div[2]/div/div/button'.</msg>
+<arg>${SEND_CODE_BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-28T15:58:31.129732" elapsed="0.168417"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-01-28T15:58:36.305461" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-01-28T15:58:31.299264" elapsed="5.006671"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${OTP_INPUT}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-01-28T15:58:36.306569" elapsed="0.077076"/>
+</kw>
+<kw name="Get Value From User" owner="Dialogs">
+<msg time="2025-01-28T15:58:44.352177" level="INFO">${otp} = 89924</msg>
+<var>${otp}</var>
+<arg>Please enter the OTP received:</arg>
+<doc>Pauses execution and asks user to input a value.</doc>
+<status status="PASS" start="2025-01-28T15:58:36.384232" elapsed="7.969332"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-01-28T15:58:44.360536" level="INFO">Typing text '89924' into text field 'xpath=/html/body/div/main/div/div[2]/div/div[2]/div/form/div[1]/div/div/div[2]/input'.</msg>
+<arg>${OTP_INPUT}</arg>
+<arg>${otp}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-28T15:58:44.357214" elapsed="0.203007"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-01-28T15:58:46.562196" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-01-28T15:58:44.560613" elapsed="2.002097"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${OTP_PROCEED}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-01-28T15:58:46.563304" elapsed="0.074729"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-01-28T15:58:46.640649" level="INFO">Clicking element 'xpath=/html/body/div/main/div/div[2]/div/div[2]/div/form/div[2]/button[2]'.</msg>
+<arg>${OTP_PROCEED}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-28T15:58:46.638666" elapsed="0.250189"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-01-28T15:58:51.890911" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-01-28T15:58:46.889247" elapsed="5.002177"/>
+</kw>
+<status status="PASS" start="2025-01-28T15:58:28.715877" elapsed="23.175922"/>
+</kw>
+<kw name="Create PIN" owner="registration_keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${PIN_INPUT}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-01-28T15:58:51.893455" elapsed="0.071658"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CONFIRM_PIN_INPUT}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-01-28T15:58:51.966301" elapsed="0.067511"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-01-28T15:58:52.036044" level="INFO">Typing text '1234' into text field 'xpath=/html/body/div/main/div/div[2]/div[2]/div/div/div/form/div[1]/div/div[1]/div[2]/input'.</msg>
+<arg>${PIN_INPUT}</arg>
+<arg>1234</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-28T15:58:52.034400" elapsed="0.354988"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-01-28T15:58:52.391499" level="INFO">Typing text '1234' into text field 'xpath=/html/body/div/main/div/div[2]/div[2]/div/div/div/form/div[2]/div/div[1]/div[2]/input'.</msg>
+<arg>${CONFIRM_PIN_INPUT}</arg>
+<arg>1234</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-28T15:58:52.389856" elapsed="0.249717"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-01-28T15:58:54.641444" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-01-28T15:58:52.639962" elapsed="2.001980"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${PIN_PROCEED}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-01-28T15:58:54.642526" elapsed="0.089728"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-01-28T15:58:54.733759" level="INFO">Clicking element 'xpath=/html/body/div/main/div/div[2]/div[2]/div/div/div/form/button[2]'.</msg>
+<arg>${PIN_PROCEED}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-28T15:58:54.732639" elapsed="0.185015"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-01-28T15:58:59.920859" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-01-28T15:58:54.918617" elapsed="5.002745"/>
+</kw>
+<status status="PASS" start="2025-01-28T15:58:51.892494" elapsed="8.029362"/>
+</kw>
+<kw name="Complete Final Steps" owner="registration_keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${SUCCESS_PROCEED}</arg>
+<arg>${TIMEOUT}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-01-28T15:58:59.923808" elapsed="0.074727"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-01-28T15:59:00.001028" level="INFO">Clicking element 'xpath=/html/body/div/main/div/div[2]/button'.</msg>
+<arg>${SUCCESS_PROCEED}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-28T15:58:59.999127" elapsed="0.196990"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-01-28T15:59:05.198680" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-01-28T15:59:00.196580" elapsed="5.002573"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CONTINUE_REG}</arg>
+<arg>5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-01-28T15:59:05.200433" elapsed="4.177044"/>
+</kw>
+<msg time="2025-01-28T15:59:09.378185" level="INFO">${continue_visible} = True</msg>
+<var>${continue_visible}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>${CONTINUE_REG}</arg>
+<arg>5s</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-01-28T15:59:05.199778" elapsed="4.178634"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-01-28T15:59:09.381429" level="INFO">Clicking element 'css=button.instructions-comp_continue_btn__ZzS8v'.</msg>
+<arg>${CONTINUE_REG}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-28T15:59:09.379847" elapsed="0.322165"/>
+</kw>
+<arg>'${continue_visible}'=='True'</arg>
+<arg>Click Element</arg>
+<arg>${CONTINUE_REG}</arg>
+<arg>ELSE</arg>
+<arg>Wait Until Element Is Visible</arg>
+<arg>${CONTINUE_REG_ALT}</arg>
+<arg>${TIMEOUT}</arg>
+<arg>AND</arg>
+<arg>Click Element</arg>
+<arg>${CONTINUE_REG_ALT}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-01-28T15:59:09.378936" elapsed="0.323441"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-01-28T15:59:14.706015" level="INFO">Slept 5 seconds.</msg>
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-01-28T15:59:09.703127" elapsed="5.003405"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-01-28T15:59:14.708608" level="INFO">Clicked Continue Registration Button</msg>
+<arg>Clicked Continue Registration Button</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-01-28T15:59:14.707117" elapsed="0.001985"/>
+</kw>
+<status status="PASS" start="2025-01-28T15:58:59.922757" elapsed="14.786681"/>
+</kw>
+<status status="PASS" start="2025-01-28T15:58:11.858237" elapsed="62.851489"/>
+</kw>
+<kw name="Close Afyangu Website" owner="common" type="TEARDOWN">
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2025-01-28T15:59:14.712826" elapsed="2.386853"/>
+</kw>
+<status status="PASS" start="2025-01-28T15:59:14.711592" elapsed="2.388501"/>
+</kw>
+<doc>Validates the complete user registration flow with valid credentials
+
+Test Steps:
+1. Access registration page
+2. Complete registration form
+3. Verify OTP
+4. Set up PIN
+5. Complete final registration steps
+
+Expected Results:
+- User should be successfully registered
+- All form submissions should be successful
+- OTP verification should work
+- PIN should be set correctly</doc>
+<tag>critical</tag>
+<tag>registration</tag>
+<tag>smoke</tag>
+<timeout value="5 minutes"/>
+<status status="PASS" start="2025-01-28T15:58:07.762285" elapsed="69.338843"/>
+</test>
+<kw name="Log" owner="BuiltIn" type="TEARDOWN">
+<msg time="2025-01-28T15:59:17.106629" level="INFO">Completed Registration Test Suite</msg>
+<arg>Completed Registration Test Suite</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-01-28T15:59:17.106082" elapsed="0.000807"/>
+</kw>
+<doc>Automated test suite for Afyangu Health Platform Registration Process
+This suite tests the complete user registration flow including:
+- Initial registration page access
+- Form completion with valid data
+- OTP verification
+- PIN creation
+- Final registration steps</doc>
+<meta name="Browser">Chrome</meta>
+<meta name="Environment">Test</meta>
+<meta name="Executed By">QA Team</meta>
+<meta name="Platform">Afyangu Health</meta>
+<meta name="Version">1.0</meta>
+<status status="PASS" start="2025-01-28T15:58:07.708494" elapsed="69.398663"/>
+</suite>
+<status status="PASS" start="2025-01-28T15:57:33.834293" elapsed="103.283082"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="2" fail="0" skip="0">critical</stat>
+<stat pass="1" fail="0" skip="0">login</stat>
+<stat pass="1" fail="0" skip="0">registration</stat>
+<stat pass="2" fail="0" skip="0">smoke</stat>
+</tag>
+<suite>
+<stat name="Afyangu Health Platform Tests" id="s1" pass="2" fail="0" skip="0">Afyangu Health Platform Tests</stat>
+<stat name="Login Tests" id="s1-s1" pass="1" fail="0" skip="0">Afyangu Health Platform Tests.Login Tests</stat>
+<stat name="Registration Tests" id="s1-s2" pass="1" fail="0" skip="0">Afyangu Health Platform Tests.Registration Tests</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
